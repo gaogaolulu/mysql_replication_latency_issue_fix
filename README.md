@@ -1,10 +1,17 @@
 操作系统： redhat 7  64bit
+
 硬件： 主机 从机相同, 8 核  72 GB 内存 
+
 网络： 10 GB 
+
 mysql： 从 8.0.11 升级到  8.0.22  
+
 cluster： 一主 一从， streaming replication
+
 问题描述： 8.0.11  主从工作正常， 升级后， 从机 慢， 延迟 不断增加， 没有减少， 当将主机停机后， 从机延迟消失 。 
+
 主机配置： 使用 binlog group commit ,  相关参数 已经增大 
+
 从机配置： 有 128 个thread 来 应用 日志
 
 binlog_transaction_dependency_history_size=100000 
