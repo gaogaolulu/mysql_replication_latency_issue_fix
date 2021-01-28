@@ -22,10 +22,10 @@ slave_preserve_commit_order=1
 5. 从机 CPU / 内存： cpu 占有率 极低 ， 内存 10%  占用率 以下  ， 
 6. 检查 从机等待事件：  
  event_name                                   
-----------------------------------------------
+ 
  wait/synch/cond/sql/Worker_info::jobs_cond   
  wait/synch/cond/sql/MYSQL_BIN_LOG::COND_done 
-----------------------------------------------
+ 
 
 7 从机显示 waiting for handler commit,  执行过的 position 非常慢， 每秒大概执行  40 左右， 而写入 速度每秒大概 200 左右，这导致 延迟非常严重。
 8. 从机统计 :  负载平摊在  大约 10 - 16 个 thread ， 
@@ -49,13 +49,13 @@ log_slave_updates=OFF
 重启后， 发现执行的 速度非常快， 每秒大概 500 到 1000 ， 查看 CPU 占用率 ， 上升到 50%， 内存占用率 上升到 40%。　
 等待事件只有：　
  event_name                                   
-----------------------------------------------
+ 
  wait/synch/cond/sql/Worker_info::jobs_cond   
 
 binary log 等待事件 基本消失： 
 
  wait/synch/cond/sql/MYSQL_BIN_LOG::COND_done 
-----------------------------------------------
+ 
 
 
 
